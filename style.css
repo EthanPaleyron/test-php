@@ -1,0 +1,20 @@
+.red {
+  color: red;
+}
+
+table {
+  border-collapse: collapse;
+  border: solid;
+}
+
+table tr th,
+table tr td {
+  width: 10rem;
+  border: solid;
+}
+
+img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+}
