@@ -174,24 +174,6 @@ foreach($tab2 as $value) {
 }
 echo($result);
 ?>
-<!-- Exo 2.5 -->
-<!-- Afficher des bannières de manière aléatoire parmi 3 possibles lorsqu'on arrive sur votre page PHP. Ces
-bannières ont pour caractéristiques une image, un lien et une description sur cette image. -->
-<!-- 🔴pas finis -->
-<!-- <?php
-$tabBannieres = array(
-1 => array('http://www.votre_site.com' ,'http://www
-votre_site.com/banniere.gif' ,'Description 1'),
-2 => array('http://www.votre_site.com2','http://www
-votre_site2.com/banniere.gif','Description 2'),
-3 => array('http://www.votre_site3.com','http://www
-votre_site3.com/banniere.gif','Description 3'));
-$tmp=0;
-foreach ($tabBannieres as $key => $value) {
-    $tmp=rand(1,$key);
-}
-echo($tmp);
-?> -->
 <!-- Exo 3.1 -->
 <?php
 $phrase="Bonjour Monsieur Dupont.";
@@ -201,12 +183,12 @@ echo('Dans "'.$phraseMag.'"il y a '.strlen($phraseMag)." de caractère");
 ?>
 <!-- Exo 3.2 -->
 <?php
-// $email="jean.dupont@france.fr";
-// if ("/@/","$email") {
-//     echo("Email correct");
-// } else {
-//     echo("Email incorrect");
-// }
+$email="jean.dupont@france.fr";
+if (strpos(substr($email, "@"),".") && strpos($email, "@")) {
+    echo("Email correct");
+} else {
+    echo("Email incorrect");
+}
 ?>
 <!-- Exo 4.1 -->
 <?php
