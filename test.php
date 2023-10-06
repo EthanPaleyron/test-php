@@ -183,20 +183,82 @@ echo('Dans "'.$phraseMag.'"il y a '.strlen($phraseMag)." de caractère");
 ?>
 <!-- Exo 3.2 -->
 <?php
-$email="jean.dupont@france.fr";
-if (strpos(substr($email, "@"),".") && strpos($email, "@")) {
-    echo("Email correct");
-} else {
-    echo("Email incorrect");
-}
+// $email="jean.dupont@france.fr";
+// if (strpos(substr($email, "@"),".") && strpos($email, "@")) {
+//     echo("Email correct");
+// } else {
+//     echo("Email incorrect");
+// }
 ?>
 <!-- Exo 4.1 -->
+<!-- Utiliser les expressions régulières permettant de reconnaître un nombre compris entre -999 et 999 -->
 <?php
-if (preg_match("/[0-9]{1}/","5") == true) {
-    echo"true";
+if (preg_match("/^(-?(?!0)[0-9]{1,3}||0)$/","-666") == true) {
+    echo"<br>true";
 } else {
-    echo"false";
+    echo"<br>false";
 }
 ?>
+<!-- Exo 4.2 -->
+<!-- Vérifier à l’aide des expressions régulières qu’une date est dans le format jj/mm/yyyy -->
+<?php
+if (preg_match("/^([3][01]|[12]\d|[0]?[1-9])[\/-]([1][12]|[0]?[1-9])[\/-](\d{4}|\d{2})$/","29/05/2023") == true) {
+    echo"<br>true";
+} else {
+    echo"<br>false";
+}
+?>
+<!-- Exo 6.2 -->
+<!-- Créer une fonction convertissant les francs en euros. La fonction prend en paramètre les francs et retourne la
+valeur en euro.
+Afficher un tableau HTML avec toutes les sommes en francs de 0 à 1000 par pas de 50 et leur
+correspondance en euros. -->
+<table>
+    <thead>
+        <tr>
+            <th>Francs</th>
+            <th>Euros</th>
+        </tr>
+    </thead>
+    <tbody>
+<?php
+function converterFrancsToEuros($francs) {
+    return $francs * 0.152449;
+}
+
+$numrOfFrancs = 1000;
+for ($i=50; $i <= $numrOfFrancs; $i += 50) { 
+    echo("<tr>
+    <td>".$i."</td>
+    <td>".converterFrancsToEuros($i)."</td>
+        </tr>");
+}
+?>     
+<!-- Exo 6.2 -->
+<!-- Ecrire une fonction qui permet de calculer la factorielle d'un nombre de manière récursive.
+Par exemple la factorielle de 7 est: 1*2*3*4*5*6*7
+Afficher alors la factorielle de 20 (2.4329020081766E+18). -->
+<?php
+function factorielleRecursive($n) {
+    if ($n == 0) {
+        return 1;
+    } else {
+        return($n * factorielleRecursive($n-1));
+    }
+}
+echo(factorielleRecursive(20));
+?>     
+<!-- Exo 6.4 -->
+<!-- Créer une fonction pour afficher une phrase contenant de manière aléatoire les trois mots
+"Bonjour","Monsieur" et "Robert". Chaque mot ne doit apparaître qu'une seule fois. Cette fonction prend en
+paramètre les trois mots "Bonjour","Monsieur" et "Robert". -->
+<?php
+// function randomSentence($names) {
+//     rand();
+// }
+// echo(randomSentence(["Bonjour","Monsieur", "Robert"]));
+?>     
+    </tbody>
+</table>
 </body>
 </html>
