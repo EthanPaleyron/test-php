@@ -231,9 +231,11 @@ for ($i=50; $i <= $numrOfFrancs; $i += 50) {
     echo("<tr>
     <td>".$i."</td>
     <td>".converterFrancsToEuros($i)."</td>
-        </tr>");
+    </tr>");
 }
 ?>     
+</tbody>
+</table>
 <!-- Exo 6.2 -->
 <!-- Ecrire une fonction qui permet de calculer la factorielle d'un nombre de manière récursive.
 Par exemple la factorielle de 7 est: 1*2*3*4*5*6*7
@@ -253,12 +255,39 @@ echo(factorielleRecursive(20));
 "Bonjour","Monsieur" et "Robert". Chaque mot ne doit apparaître qu'une seule fois. Cette fonction prend en
 paramètre les trois mots "Bonjour","Monsieur" et "Robert". -->
 <?php
-// function randomSentence($names) {
-//     rand();
-// }
-// echo(randomSentence(["Bonjour","Monsieur", "Robert"]));
+function randomSentence($names) {
+    for ($i=0; $i <= sizeof($names)+1; $i++) { 
+        $numberRand = rand(0, sizeof($names)-1);
+        echo($names[$numberRand]." ");
+        unset($names[$numberRand]);
+        sort($names);
+    }
+}
+randomSentence(["Bonjour","Monsieur", "Robert"]);
 ?>     
-    </tbody>
-</table>
+<!-- Exo 6.5 -->
+<!-- Créer un tableau contenant 10 chiffres aléatoires entre 1 à 100 puis trier celui-ci sans utiliser les méthodes
+de tri de tableau comme sort(). Il faudra créer une fonction pour échanger deux valeurs dans un tableau.
+Afficher ces valeurs séparées par une virgule. -->
+<?php
+$numbersRand = [];
+for ($i=0; $i < 10; $i++) { 
+    array_push($numbersRand, rand(1, 100));
+}
+function sorte($n) {
+    $tmp = 0;
+    for ($i=0; $i < sizeof($n); $i++) { 
+        if ($n[$i] > $tmp) {
+            $tmp = $n[$i];
+            echo $tmp." ";
+            unset($n[$i]);
+            array_push($n, $tmp);
+            $tmp = 0;
+        }
+    }
+    return $n;
+}
+print_r(sorte($numbersRand));
+?>
 </body>
 </html>
