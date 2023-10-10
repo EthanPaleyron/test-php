@@ -274,20 +274,69 @@ $numbersRand = [];
 for ($i=0; $i < 10; $i++) { 
     array_push($numbersRand, rand(1, 100));
 }
-function sorte($n) {
-    $tmp = 0;
-    for ($i=0; $i < sizeof($n); $i++) { 
-        if ($n[$i] > $tmp) {
-            $tmp = $n[$i];
-            echo $tmp." ";
-            unset($n[$i]);
-            array_push($n, $tmp);
-            $tmp = 0;
-        }
+
+    function change(&$array ,$n1, $n2, $tmp = null) {
+        $tmp = $array[$n1];
+        $array[$n1] = $array[$n2];
+        $array[$n2] = $tmp;
     }
-    return $n;
-}
-print_r(sorte($numbersRand));
+
+    function sorte($numberRand) {
+        $lastIndex = sizeof($numberRand)-1;
+        while ($lastIndex >= 0) {
+            $tmp = 0;
+            $pos = 0;
+            for ($i=0; $i <= $lastIndex; $i++) { 
+                if ($numberRand[$i] > $tmp) {
+                    $tmp = $numberRand[$i];
+                    $pos = $i;
+                    echo $pos.";";
+                }
+            }
+            change($numberRand, $pos, $lastIndex);
+            $lastIndex--;
+        }
+        return $numberRand;
+    }
+        
+        var_dump(sorte($numbersRand));
+
 ?>
+<!-- Exo 6.7 -->
+<!-- Soit le tableau A avec les éléments 3,8,15,16. Créer un tableau B à l'aide d'une boucle contenant tous les
+éléments de 1 à 20 sauf les éléments du tableau A. Créer une fonction qui calcule le cube de ce chiffre et
+afficher dans un tableau HTML les éléments du tableau B dans une première colonne et le cube des
+éléments de B dans une seconde colonne. -->
+<?php
+$tabA = [3,8,15,16];
+$tabB = [];
+$compteur = 0;
+for ($i=1; $i <= 20; $i++) { 
+    if (! in_array($i, $tabA)) {
+        $compteur++;
+        array_push($tabB, $i);
+    }
+}
+
+var_dump($tabB)
+// include("variable.php");
+// echo $prenom." ".$nom;
+?>
+<!-- Exo 7.1 -->
+<!-- Créer un fichier texte qui stocke le nombre de fois qu'une page a été vue. -->
+<?php
+file_put_contents("text.txt", (int)file_get_contents("text.txt") + 1);
+echo(file_get_contents("text.txt"));
+?>
+<!-- Exo 7.2 -->
+<!-- Placer trois images dans un répertoire images puis créer une page PHP qui créera un fichier texte contenant
+le nom et la taille de ces images puis qui copiera ces images dans un répertoire archive au même niveau
+que le répertoire image. -->
+<?php
+// touch("lol.txt");
+?>
+<!-- Exo 7.3 -->
+<!-- Créer une page qui écrit dans un fichier log.txt la date et l'heure courante et qui affiche le temps en
+microsecondes pour déplacer trois images du répertoire images au répertoire archive. -->
 </body>
 </html>
