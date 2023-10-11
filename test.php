@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php
+    session_start();
 echo"<p>Hello !</p>";
 
 $nom = 'salut';
@@ -26,6 +27,64 @@ $return_value = match ($fruit) {
 };
 var_dump($return_value);
 ?>
+<?php
+$_SESSION['nom'] = "Jean";
+echo("le nom est = ".$_SESSION['nom']);
+$temps_expiration = 365 * 24 * 3600;
+setcookie("name","Jean",time()+$temps_expiration);
+if (isset($_COOKIE['name'])) {
+echo "Le nom en cookie est:".$_COOKIE['name'];
+}
+
+$tableau = array('Jean','Robert','Aline');
+$temps_expiration = 365 * 24 * 3600;
+$chaine_serialisee = serialize($tableau);
+setcookie("serialise",$chaine_serialisee,time()+$temps_expiration);
+if (isset($_COOKIE["serialise"])) {
+$nouveau_tableau = unserialize($_COOKIE["serialise"]);
+print_r($nouveau_tableau);
+}
+?>
+<a href="http://localhost/test-php/affichier_session.php">ici</a>
+
+<form action="upload.php" method="POST" enctype="multipart/form-data">
+<input type="hidden" name="MAX_FILE_SIZE" value="2097152">
+<p>Choisissez une photo avec une taille inférieure à 2 Mo.</p>
+<input type="file" name="photo">
+<br />
+<input type="submit" name="ok" value="Envoyer">
+</form>
+
+<form action="recoit_post.php" method="POST">
+    <label for="prenom">Prénom:</label>
+    <input type="text" name="prenom" id="prenom" value="Jean">
+    <label for="nom">Nom:</label>
+    <input type="text" name="nom" id="nom" value="Dupont">
+    <input type="password" name="passworld" value="bt54z6489vter8">
+    <textarea name="textarea">Salut c'est moi!</textarea>
+    <select name="pays">
+        <option value="F">France</option>
+        <option value="E">Espagne</option>
+        <option value="R" selected>Russie</option>
+    </select>
+    <select name="paysMultiples[]" multiple="multiple">
+        <option value="F">France</option>
+        <option value="E">Espagne</option>
+        <option value="R">Russie</option>
+        <option value="A">Allemagne</option>
+    </select><br>
+    <input type="checkbox" name="paysCheckbox[]" value="F" checked>France
+    <input type="checkbox" name="paysCheckbox[]" value="E">Espagne
+    <input type="checkbox" name="paysCheckbox[]" value="R">Russie
+    <input type="checkbox" name="paysCheckbox[]" value="A" checked>Allemagne
+    <input type="radio" name="paysRadio" value="F">France
+    <input type="radio" name="paysRadio" value="E">Espagne
+    <input type="radio" name="paysRadio" value="R" selected>Russie
+    <input type="radio" name="paysRadio" value="A">Allemagne
+    <input type="hidden" name="hidden" value="champ caché">
+    <input type="submit" name="bouton" value="Envoyer">
+</form>
+
 <?php
 $variable = 15.325;
 echo "La valeur entière est:".(int)$variable;
@@ -326,17 +385,33 @@ var_dump($tabB)
 <!-- Créer un fichier texte qui stocke le nombre de fois qu'une page a été vue. -->
 <?php
 file_put_contents("text.txt", (int)file_get_contents("text.txt") + 1);
-echo(file_get_contents("text.txt"));
+echo(file_get_contents("text.txt")."<br>");
 ?>
 <!-- Exo 7.2 -->
 <!-- Placer trois images dans un répertoire images puis créer une page PHP qui créera un fichier texte contenant
 le nom et la taille de ces images puis qui copiera ces images dans un répertoire archive au même niveau
 que le répertoire image. -->
-<?php
-// touch("lol.txt");
-?>
 <!-- Exo 7.3 -->
 <!-- Créer une page qui écrit dans un fichier log.txt la date et l'heure courante et qui affiche le temps en
 microsecondes pour déplacer trois images du répertoire images au répertoire archive. -->
+<?php
+touch("size-img.txt");
+$folder = scandir("images");
+$nameSizeImg = "";
+foreach ($folder as $value) {
+    if (! str_starts_with($value, ".")) {
+        $origin = "images/".$value;
+        $newOrigin = "archive/".$value;
+        $nameSizeImg .= $value.filesize("images/".$value)."; ";
+        file_put_contents("size-img.txt", $nameSizeImg);
+        if (is_file($origin)) {
+            rename($origin, $newOrigin);
+        }
+        file_put_contents("log.txt", microtime(TRUE));
+    }
+}
+echo(file_get_contents("size-img.txt")."<br>");
+echo(file_get_contents("log.txt"));
+?>
 </body>
 </html>
