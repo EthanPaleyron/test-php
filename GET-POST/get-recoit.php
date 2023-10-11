@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <p><a href="get_recoit.php?nom=Dupont&prenom=Jean">appel de la page get_recoit.php?nom=Dupont&prenom=Jean</a></p>
+    <?php
+echo "Le nom reçu est: ".$_GET["nom"]."<br />";
+echo "Le prénom reçu est: ".$_GET["prenom"]."<br />" ;
+?>
 </body>
 </html>

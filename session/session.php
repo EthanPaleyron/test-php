@@ -6,9 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-echo "Le nom reçu est:".$_GET["nom"]."<br />";
-echo "Le prénom reçu est:".$_GET["prenom"]."<br />" ;
-?>
+    <?php session_start(); ?>
+    <a href="http://localhost/test-php/session/affichier-session.php">Affichier les session</a>
 </body>
 </html>

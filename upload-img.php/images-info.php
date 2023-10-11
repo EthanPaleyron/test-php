@@ -1,4 +1,12 @@
-<pre><?php print_r($_FILES); ?></pre>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre><?php print_r($_FILES); ?></pre>
 <?php
 if ($_FILES['photo']['error']) {
 
@@ -39,9 +47,7 @@ if ((isset($_FILES['photo']['name'])&&($_FILES['photo']['error'] == UPLOAD_ERR_O
 $chemin_destination = 'fichiers/';
 // déplacement du fichier du répertoire temporaire (stocké par défaut) dans le répertoire de destination avec la fonction move_uploaded_file($fichier_uploadé, $dossier_nom_fichier_destination)
 
-move_uploaded_file($_FILES['photo']['tmp_name'], $chemin_destination.$_FILES['photo']
-
-['name']);
+move_uploaded_file($_FILES['photo']['tmp_name'], $chemin_destination.$_FILES['photo']['name']);
 
 echo "Le fichier ".$_FILES['photo']['name']." a été copié dans le répertoire fichiers";
 
@@ -54,3 +60,5 @@ echo "Le fichier n'a pas pu être copié dans le répertoire fichiers.";
 
 }
 ?>
+</body>
+</html>
