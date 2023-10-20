@@ -40,8 +40,7 @@
     <!-- LES EXOS -->
 
     <!-- Exo 1.1 -->
-    <!-- Créer une constante Vitesse_lumiere égal à 299792 km/s.
-Afficher « La vitesse de la lumière est 299792 km/s » en utilisant la constante. -->
+    <!-- Créer une constante Vitesse_lumiere égal à 299792 km/s. Afficher « La vitesse de la lumière est 299792 km/s » en utilisant la constante. -->
     <h2>Exo 1.1</h2>
     <?php
     define("V", 299792);
@@ -49,8 +48,7 @@ Afficher « La vitesse de la lumière est 299792 km/s » en utilisant la constan
     ?>
 
     <!-- Exo 1.2 -->
-    <!-- Rédigez un programme informatique qui affiche les nombres de 1 à 100 dans l’ordre, en remplaçant les
-multiples de 3 par le mot Fizz, les multiples de 5 par Buzz, et les multiples de 15 par FizzBuzz -->
+    <!-- Rédigez un programme informatique qui affiche les nombres de 1 à 100 dans l’ordre, en remplaçant les multiples de 3 par le mot Fizz, les multiples de 5 par Buzz, et les multiples de 15 par FizzBuzz -->
     <h2>Exo 1.2</h2>
     <?php
     for ($i = 0; $i <= 100; $i++) {
@@ -79,7 +77,6 @@ multiples de 3 par le mot Fizz, les multiples de 5 par Buzz, et les multiples de
 
     <!-- Exo 1.4 -->
     <!-- Reprendre l’exercice 1.3 et mettre en vert tous les nombres < 10 et en rouge les autres nombres. -->
-    <!-- probleme de css -->
     <h2>Exo 1.4</h2>
     <?php
     for ($i = 0; $i <= 20; $i++) {
@@ -107,9 +104,7 @@ multiples de 3 par le mot Fizz, les multiples de 5 par Buzz, et les multiples de
     ?>
 
     <!-- Exo 2.1 -->
-    <!-- Créer un tableau contenant les chiffres de 1 à 10 et un autre tableau contenant les nombres de 11 à 20.
-Ensuite créer un autre tableau contenant le somme des 2 premiers tableaux et afficher ses valeurs. Il faut
-utiliser les boucles pour créer ces tableaux. -->
+    <!-- Créer un tableau contenant les chiffres de 1 à 10 et un autre tableau contenant les nombres de 11 à 20. Ensuite créer un autre tableau contenant le somme des 2 premiers tableaux et afficher ses valeurs. Il faut utiliser les boucles pour créer ces tableaux. -->
     <!-- PAS FINIS -->
     <h2>Exo 2.1</h2>
     <?php
@@ -130,9 +125,7 @@ utiliser les boucles pour créer ces tableaux. -->
     ?>
 
     <!-- Exo 2.2 -->
-    <!-- Créer un tableau de 10 valeurs au hasard entre 1 et 100. La fonction rand($min,$max); permet de tirer un
-nombre au hasard entre $min et $max. Trier ce tableau du plus petit au plus grand puis mettre toutes les
-valeurs dans une chaîne de caractères séparées par des ; et afficher la chaîne. -->
+    <!-- Créer un tableau de 10 valeurs au hasard entre 1 et 100. La fonction rand($min,$max); permet de tirer un nombre au hasard entre $min et $max. Trier ce tableau du plus petit au plus grand puis mettre toutes les valeurs dans une chaîne de caractères séparées par des ; et afficher la chaîne. -->
     <h2>Exo 2.2</h2>
     <?php
     $array = [];
@@ -182,11 +175,7 @@ valeurs dans une chaîne de caractères séparées par des ; et afficher la cha�
     </table>
 
     <!-- Exo 2.4 -->
-    <!-- Voici deux tableaux:
-Le tableau1 est composé des éléments: 6,25,35 et 61
-Le tableau2 est composé des éléments: 12,24 et 46
-Ecrire le code permettant de calculer le schtroumpf de ces deux tableaux. Le schtroumpf se calcule en
-multipliant chaque valeur du tableau1 par celle du tableau2 et additionnant le tout. -->
+    <!-- Voici deux tableaux: Le tableau1 est composé des éléments: 6,25,35 et 61 Le tableau2 est composé des éléments: 12,24 et 46 Ecrire le code permettant de calculer le schtroumpf de ces deux tableaux. Le schtroumpf se calcule en multipliant chaque valeur du tableau1 par celle du tableau2 et additionnant le tout. -->
     <h2>Exo 2.4</h2>
     <?php
     $result = 0;
@@ -201,10 +190,7 @@ multipliant chaque valeur du tableau1 par celle du tableau2 et additionnant le t
     ?>
 
     <!-- Exo 3.1 -->
-    <!-- Créer une variable $phrase = «Bonjour Monsieur Dupont. ».
-Afficher cette phrase en majuscule.
-Remplacer le mot Dupont par Durand.
-Afficher le nombre de caractères dans cette phrase. -->
+    <!-- Créer une variable $phrase = «Bonjour Monsieur Dupont. ». Afficher cette phrase en majuscule. Remplacer le mot Dupont par Durand. Afficher le nombre de caractères dans cette phrase. -->
     <h2>Exo 3.1</h2>
     <?php
     $phrase = "Bonjour Monsieur Dupont.";
@@ -214,9 +200,7 @@ Afficher le nombre de caractères dans cette phrase. -->
     ?>
 
     <!-- Exo 3.2 -->
-    <!-- Créer une variable $email = «jean.dupont@france.fr ».
-Afficher « Email correct » si les caractères @ et . sont présents dans l’email. Afficher « Email incorrect » sinon.
-Ne pas utiliser les expressions régulières. -->
+    <!-- Créer une variable $email = «jean.dupont@france.fr ». Afficher « Email correct » si les caractères @ et . sont présents dans l’email. Afficher « Email incorrect » sinon. Ne pas utiliser les expressions régulières. -->
     <!-- PAS FINIS -->
     <h2>Exo 3.2</h2>
     <?php
@@ -251,10 +235,7 @@ Ne pas utiliser les expressions régulières. -->
     ?>
 
     <!-- Exo 6.2 -->
-    <!-- Créer une fonction convertissant les francs en euros. La fonction prend en paramètre les francs et retourne la
-valeur en euro.
-Afficher un tableau HTML avec toutes les sommes en francs de 0 à 1000 par pas de 50 et leur
-correspondance en euros. -->
+    <!-- Créer une fonction convertissant les francs en euros. La fonction prend en paramètre les francs et retourne la valeur en euro. Afficher un tableau HTML avec toutes les sommes en francs de 0 à 1000 par pas de 50 et leur correspondance en euros. -->
     <h2>Exo 6.2</h2>
     <table>
         <thead>
@@ -282,9 +263,7 @@ correspondance en euros. -->
     </table>
 
     <!-- Exo 6.3 -->
-    <!-- Ecrire une fonction qui permet de calculer la factorielle d'un nombre de manière récursive.
-Par exemple la factorielle de 7 est: 1*2*3*4*5*6*7
-Afficher alors la factorielle de 20 (2.4329020081766E+18). -->
+    <!-- Ecrire une fonction qui permet de calculer la factorielle d'un nombre de manière récursive. Par exemple la factorielle de 7 est: 1*2*3*4*5*6*7 Afficher alors la factorielle de 20 (2.4329020081766E+18). -->
     <h2>Exo 6.3</h2>
     <?php
     function factorielleRecursive($n)
@@ -299,9 +278,7 @@ Afficher alors la factorielle de 20 (2.4329020081766E+18). -->
     ?>
 
     <!-- Exo 6.4 -->
-    <!-- Créer une fonction pour afficher une phrase contenant de manière aléatoire les trois mots
-"Bonjour","Monsieur" et "Robert". Chaque mot ne doit apparaître qu'une seule fois. Cette fonction prend en
-paramètre les trois mots "Bonjour","Monsieur" et "Robert". -->
+    <!-- Créer une fonction pour afficher une phrase contenant de manière aléatoire les trois mots "Bonjour","Monsieur" et "Robert". Chaque mot ne doit apparaître qu'une seule fois. Cette fonction prend en paramètre les trois mots "Bonjour","Monsieur" et "Robert". -->
     <h2>Exo 6.4</h2>
     <?php
     function randomSentence($names)
@@ -317,9 +294,7 @@ paramètre les trois mots "Bonjour","Monsieur" et "Robert". -->
     ?>
 
     <!-- Exo 6.5 -->
-    <!-- Créer un tableau contenant 10 chiffres aléatoires entre 1 à 100 puis trier celui-ci sans utiliser les méthodes
-de tri de tableau comme sort(). Il faudra créer une fonction pour échanger deux valeurs dans un tableau.
-Afficher ces valeurs séparées par une virgule. -->
+    <!-- Créer un tableau contenant 10 chiffres aléatoires entre 1 à 100 puis trier celui-ci sans utiliser les méthodes de tri de tableau comme sort(). Il faudra créer une fonction pour échanger deux valeurs dans un tableau. Afficher ces valeurs séparées par une virgule. -->
     <h2>Exo 6.5</h2>
     <?php
     $numbersRand = [];
@@ -357,10 +332,7 @@ Afficher ces valeurs séparées par une virgule. -->
     ?>
 
     <!-- Exo 6.7 -->
-    <!-- Soit le tableau A avec les éléments 3,8,15,16. Créer un tableau B à l'aide d'une boucle contenant tous les
-éléments de 1 à 20 sauf les éléments du tableau A. Créer une fonction qui calcule le cube de ce chiffre et
-afficher dans un tableau HTML les éléments du tableau B dans une première colonne et le cube des
-éléments de B dans une seconde colonne. -->
+    <!-- Soit le tableau A avec les éléments 3,8,15,16. Créer un tableau B à l'aide d'une boucle contenant tous les éléments de 1 à 20 sauf les éléments du tableau A. Créer une fonction qui calcule le cube de ce chiffre et afficher dans un tableau HTML les éléments du tableau B dans une première colonne et le cube des éléments de B dans une seconde colonne. -->
     <!-- PAS FINIS -->
     <h2>Exo 6.7</h2>
     <?php
@@ -388,12 +360,9 @@ afficher dans un tableau HTML les éléments du tableau B dans une première col
     ?>
 
     <!-- Exo 7.2 -->
-    <!-- Placer trois images dans un répertoire images puis créer une page PHP qui créera un fichier texte contenant
-le nom et la taille de ces images puis qui copiera ces images dans un répertoire archive au même niveau
-que le répertoire image. -->
+    <!-- Placer trois images dans un répertoire images puis créer une page PHP qui créera un fichier texte contenant le nom et la taille de ces images puis qui copiera ces images dans un répertoire archive au même niveau que le répertoire image. -->
     <!-- Exo 7.3 -->
-    <!-- Créer une page qui écrit dans un fichier log.txt la date et l'heure courante et qui affiche le temps en
-microsecondes pour déplacer trois images du répertoire images au répertoire archive. -->
+    <!-- Créer une page qui écrit dans un fichier log.txt la date et l'heure courante et qui affiche le temps en microsecondes pour déplacer trois images du répertoire images au répertoire archive. -->
     <!-- PAS FINIS -->
     <h2>Exo 7.2 & Exo 7.3</h2>
     <?php

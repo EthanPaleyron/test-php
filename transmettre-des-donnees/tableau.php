@@ -9,15 +9,10 @@
 
 <body>
     <!-- Exo 1.1 -->
-    <!-- Créer une page login.php contenant un formulaire avec une zone login et une zone mot de passe. Ajouter un
-bouton vérifier de type submit qui appelle la page verif_login.php. Cette page affiche "login correct" si le nom est
-égal à "Dupont" et le mot de passe "alibaba". Sinon cette page redirige sur la page login.php avec le message
-"login incorrect". -->
+    <!-- Créer un formulaire avec une zone login et une zone mot de passe. Ajouter un bouton vérifier de type submit qui appelle la page verif_login.php. Cette page affiche "login correct" si le nom est égal à "Dupont" et le mot de passe "alibaba". Sinon cette page redirige sur la page login.php avec le message "login incorrect". -->
 
     <!-- Exo 1.2 -->
-    <!-- Reprendre l'exercice 1 et afficher dans la page login.php le nombre de fois où l'utilisateur a essayé de se loguer
-avant d'utiliser les bons login et mot de passe. Afficher aussi dans cette page tous les login et mot de passe
-essayés. -->
+    <!-- Reprendre l'exercice 1 et afficher dans la page login.php le nombre de fois où l'utilisateur a essayé de se loguer avant d'utiliser les bons login et mot de passe. Afficher aussi dans cette page tous les login et mot de passe essayés. -->
     <form action="verif_login.php" method="POST">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" value="Dupont">
@@ -127,11 +122,7 @@ essayés. -->
     <hr>
 
     <!-- Exo 1.5 -->
-    <!-- Crée un input type file et un bouton submit.
-Créer une page recoit.php qui stocke les images dans le dossier image.
-Créer une page graphique.php qui affiche des barres verticales représentant le nombre de fichiers < 50ko, < 100
-ko, < 500 ko, < 1Mo et >= 1Mo
-Créer une page affichage.php qui affiche graphique.php -->
+    <!-- Crée un input type file et un bouton submit. Créer une page recoit.php qui stocke les images dans le dossier image. Créer une page graphique.php qui affiche des barres verticales représentant le nombre de fichiers < 50ko, < 100 ko, < 500 ko, < 1Mo et >= 1Mo Créer une page affichage.php qui affiche graphique.php -->
 </body>
 
 </html>
