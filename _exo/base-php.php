@@ -105,7 +105,6 @@
 
     <!-- Exo 2.1 -->
     <!-- Créer un tableau contenant les chiffres de 1 à 10 et un autre tableau contenant les nombres de 11 à 20. Ensuite créer un autre tableau contenant le somme des 2 premiers tableaux et afficher ses valeurs. Il faut utiliser les boucles pour créer ces tableaux. -->
-    <!-- PAS FINIS -->
     <h2>Exo 2.1</h2>
     <?php
     $array1 = [];
@@ -121,7 +120,7 @@
     for ($i = 0; $i < 10; $i++) {
         array_push($array3, $array1[$i] + $array2[$i]);
     }
-    // print_r($array3."<br>");
+    var_dump($array3);
     ?>
 
     <!-- Exo 2.2 -->
@@ -201,25 +200,25 @@
 
     <!-- Exo 3.2 -->
     <!-- Créer une variable $email = «jean.dupont@france.fr ». Afficher « Email correct » si les caractères @ et . sont présents dans l’email. Afficher « Email incorrect » sinon. Ne pas utiliser les expressions régulières. -->
-    <!-- PAS FINIS -->
     <h2>Exo 3.2</h2>
     <?php
-    // $email="jean.dupont@france.fr";
-// if (strpos(substr($email, "@"),".") && strpos($email, "@")) {
-//     echo("Email correct");
-// } else {
-//     echo("Email incorrect");
-// }
+    $email = "jean.dupont@france.fr";
+    if (!strpos($email, "@") && strpos($email, ".")) {
+        echo ("$email : Email correct");
+    } else {
+        echo ("$email : Email incorrect");
+    }
     ?>
 
     <!-- Exo 4.1 -->
     <!-- Utiliser les expressions régulières permettant de reconnaître un nombre compris entre -999 et 999 -->
     <h2>Exo 4.1</h2>
     <?php
-    if (preg_match("/^(-?(?!0)[0-9]{1,3}||0)$/", "-666") == true) {
-        echo "l'expression regulière est bonne";
+    $numbersVerif = "-666";
+    if (preg_match("/^(-?(?!0)[0-9]{1,3}|0)$/", $numbersVerif) == true) {
+        echo "$numbersVerif : l'expression regulière est bonne";
     } else {
-        echo "l'expression regulière est pas bonne";
+        echo "$numbersVerif : l'expression regulière est pas bonne";
     }
     ?>
 
@@ -227,10 +226,11 @@
     <!-- Vérifier à l’aide des expressions régulières qu’une date est dans le format jj/mm/yyyy -->
     <h2>Exo 4.2</h2>
     <?php
-    if (preg_match("/^([3][01]|[12]\d|[0]?[1-9])[\/-]([1][12]|[0]?[1-9])[\/-](\d{4}|\d{2})$/", "29/05/2023") == true) {
-        echo "l'expression regulière est bonne";
+    $jjmmyyyy = "29/05/2023";
+    if (preg_match("/^([3][01]|[12]\d|[0]?[1-9])[\/-]([1][12]|[0]?[1-9])[\/-](\d{4}|\d{2})$/", $jjmmyyyy) == true) {
+        echo "$jjmmyyyy : l'expression regulière est bonne";
     } else {
-        echo "l'expression regulière est pas bonne";
+        echo "$jjmmyyyy : l'expression regulière est pas bonne";
     }
     ?>
 
@@ -333,23 +333,28 @@
 
     <!-- Exo 6.7 -->
     <!-- Soit le tableau A avec les éléments 3,8,15,16. Créer un tableau B à l'aide d'une boucle contenant tous les éléments de 1 à 20 sauf les éléments du tableau A. Créer une fonction qui calcule le cube de ce chiffre et afficher dans un tableau HTML les éléments du tableau B dans une première colonne et le cube des éléments de B dans une seconde colonne. -->
-    <!-- PAS FINIS -->
     <h2>Exo 6.7</h2>
-    <?php
-    $tabA = [3, 8, 15, 16];
-    $tabB = [];
-    $compteur = 0;
-    for ($i = 1; $i <= 20; $i++) {
-        if (!in_array($i, $tabA)) {
-            $compteur++;
-            array_push($tabB, $i);
-        }
-    }
-
-    var_dump($tabB)
-        // include("variable.php");
-// echo $prenom." ".$nom;
-        ?>
+    <table>
+        <tbody>
+            <?php
+            function cube($n)
+            {
+                return $n * $n * $n;
+            }
+            $tabA = [3, 8, 15, 16];
+            $tabB = [];
+            for ($i = 1; $i <= 20; $i++) {
+                if (!in_array($i, $tabA)) {
+                    array_push($tabB, $i);
+                }
+            }
+            foreach ($tabB as $value) {
+                echo "<tr><td>" . $value . "</td><td>" . cube($value) . "</td></tr>";
+            }
+            var_dump($tabB);
+            ?>
+        </tbody>
+    </table>
 
     <!-- Exo 7.1 -->
     <!-- Créer un fichier texte qui stocke le nombre de fois qu'une page a été vue. -->
@@ -363,22 +368,24 @@
     <!-- Placer trois images dans un répertoire images puis créer une page PHP qui créera un fichier texte contenant le nom et la taille de ces images puis qui copiera ces images dans un répertoire archive au même niveau que le répertoire image. -->
     <!-- Exo 7.3 -->
     <!-- Créer une page qui écrit dans un fichier log.txt la date et l'heure courante et qui affiche le temps en microsecondes pour déplacer trois images du répertoire images au répertoire archive. -->
-    <!-- PAS FINIS -->
     <h2>Exo 7.2 & Exo 7.3</h2>
     <?php
     touch("size-img.txt");
+    touch("log.txt");
     $folder = scandir("images");
     $nameSizeImg = "";
     foreach ($folder as $value) {
         if (!str_starts_with($value, ".")) {
             $origin = "images/" . $value;
             $newOrigin = "archive/" . $value;
-            $nameSizeImg .= $value . filesize("images/" . $value) . "; ";
+            $tempsDebut = microtime(TRUE);
+            move_uploaded_file($origin, $newOrigin);
+            $nameSizeImg .= $value . " " . filesize("images/" . $value) . "Bit ; ";
             file_put_contents("size-img.txt", $nameSizeImg);
-            if (is_file($origin)) {
-                rename($origin, $newOrigin);
-            }
-            file_put_contents("log.txt", microtime(TRUE));
+            $tempsFin = microtime(true);
+            $tempsTotal = $tempsFin - $tempsDebut;
+            $ms = "microsecondes : " . $tempsTotal . "<br>";
+            file_put_contents("log.txt", "date et heure : " . date("Y-m-d H:i:s") . "<br>" . $ms);
         }
     }
     echo (file_get_contents("size-img.txt") . "<br>");

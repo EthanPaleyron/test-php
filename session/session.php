@@ -8,7 +8,10 @@
 </head>
 
 <body>
-    <?php session_start(); ?>
+    <?php session_start();
+    $value = "Ethan";
+    $_SESSION["nom"] = $value;
+    ?>
     <a href="http://localhost/test-php/session/affichier-session.php">Affichier les session</a>
 </body>
 
